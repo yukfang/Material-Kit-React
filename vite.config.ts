@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react-swc';
 
 // ----------------------------------------------------------------------
 
-const PORT = 3039;
+const PORT = process.env.PORT || 3039;
 
 export default defineConfig({
   build: {
@@ -20,7 +20,7 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 490,
+    chunkSizeWarningLimit: 1000,
   },
   plugins: [
     react(),
