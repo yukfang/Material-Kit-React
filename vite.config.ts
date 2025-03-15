@@ -8,6 +8,20 @@ import react from '@vitejs/plugin-react-swc';
 const PORT = 3039;
 
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('@mui')) return 'material-ui';
+            if (id.includes('react-router')) return 'react-router';
+            return 'vendor';
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
   plugins: [
     react(),
     checker({
@@ -31,6 +45,10 @@ export default defineConfig({
       {
         find: /^src(.+)/,
         replacement: path.join(process.cwd(), 'src/$1'),
+      },
+      {
+        find: '@',
+        replacement: path.resolve(process.cwd(), 'src'),
       },
     ],
   },

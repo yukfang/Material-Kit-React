@@ -10,8 +10,8 @@ import { DashboardLayout } from 'src/layouts/dashboard';
 
 // ----------------------------------------------------------------------
 
-export const HomePage = lazy(() => import('src/pages/home'));
-export const BlogPage = lazy(() => import('src/pages/blog'));
+export const HomePage = lazy(() => import('../pages/home'));
+export const BlogPage = lazy(() => import('../pages/blog'));
 export const UserPage = lazy(() => import('src/pages/user'));
 export const SignInPage = lazy(() => import('src/pages/sign-in'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
